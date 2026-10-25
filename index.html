@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#315b43">
+  <link rel="manifest" href="manifest.json">
+  <title>Feelora | Your Mood Garden</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+  <div class="logo">
+    <img src="icon-192.png" alt="Feelora Logo">
+    <h1>Feelora</h1>
+  </div>
+  <p>Your feelings, your little world.</p>
+</header>
+
+  <main>
+    <!-- HOME PAGE -->
+    <section id="home" class="page active">
+      <p class="tagline">A LITTLE SPACE JUST FOR YOU</p>
+      <h2>How is your heart today?</h2>
+      <p>Take a breath. Choose the mood that feels like you.</p>
+
+      
+
+
+<div class="mood-options">
+  <button class="mood-button" onclick="selectMood('Happy')">
+    <img src="sun.png" alt="" class="mood-picture">
+    <span>Happy</span>
+  </button>
+
+  <button class="mood-button" onclick="selectMood('Calm')">
+    <img src="calm.png" alt="" class="mood-picture">
+    <span>Calm</span>
+  </button>
+
+  <button class="mood-button" onclick="selectMood('Sad')">
+    <img src="sad.png" alt="" class="mood-picture">
+    <span>Sad</span>
+  </button>
+
+  <button class="mood-button" onclick="selectMood('Stressed')">
+    <img src="stressed.png" alt="" class="mood-picture">
+    <span>Stressed</span>
+  </button>
+
+  <button class="mood-button" onclick="selectMood('Excited')">
+    <img src="excited.png" alt="" class="mood-picture">
+    <span>Excited</span>
+  </button>
+</div>
+
+
+
+
+      <p class="nature-tagline">
+  <img src="./daisy.png" alt="Daisy" class="title-flower">
+  Your little nature world is waiting
+</p>
+
+<div id="mood-message" class="message"></div>
+
+      <div class="insight-card">
+        <h3 class="mood-glance-title">
+  <img src="flower.png" alt="" class="title-flower">
+  Your mood at a glance
+</h3>
+        <p id="home-insight">Your mood journey starts here.</p>
+      </div>
+    </section>
+
+    <!-- JOURNAL PAGE -->
+    <section id="journal" class="page">
+      <h2> Your little journal</h2>
+      <p>What's on your mind today?</p>
+
+      
+
+      <label for="journal-entry">Your thoughts</label>
+      <textarea
+        id="journal-entry"
+        placeholder="Write anything you want here..."
+      ></textarea>
+
+      <button id="save-btn" class="save-btn">
+        Save my day 
+      </button>
+
+      <p id="save-message"></p>
+
+      
+    </section>
+
+    <!-- HISTORY PAGE -->
+    <section id="history" class="page">
+      <h2 class="mood-glance-title">
+  <img src="flower.png" alt="" class="title-flower">
+  Your mood history
+</h2>
+<p>Look back at the moods you've recorded.</p>
+      <div class="calendar-card">
+        <div class="calendar-heading">
+          <button id="prev-month" aria-label="Previous month">‹</button>
+          <h3 id="calendar-month">Mood calendar</h3>
+          <button id="next-month" aria-label="Next month">›</button>
+        </div>
+
+        <div class="calendar-grid" id="calendar-weekdays">
+          <span>Sun</span>
+          <span>Mon</span>
+          <span>Tue</span>
+          <span>Wed</span>
+          <span>Thu</span>
+          <span>Fri</span>
+          <span>Sat</span>
+        </div>
+
+        <div class="calendar-grid" id="calendar-days"></div>
+
+        <p id="calendar-detail">
+          Choose a date to see your saved mood.
+        </p>
+      </div>
+
+      <h3> All your saved days</h3>
+      <div id="history-list"></div>
+
+      <button id="clear-btn" class="clear-btn">
+        Clear my history
+      </button>
+    </section>
+
+    <!-- INSIGHTS PAGE -->
+    <section id="insights" class="page">
+      <h2 class="mood-glance-title">
+  <img src="flower.png" alt="" class="title-flower">
+  Your mood insights
+</h2>
+
+      
+
+      <div class="insight-card">
+        <h3>Your mood chart</h3>
+        <div id="mood-chart" class="mood-chart"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- BOTTOM NAVIGATION -->
+  <nav class="bottom-nav">
+    <button class="nav-btn active" data-page="home">
+      
+      <span>Home</span>
+    </button>
+
+    <button class="nav-btn" data-page="journal">
+      
+      <span>Journal</span>
+    </button>
+
+    <button class="nav-btn" data-page="history">
+      
+      <span>History</span>
+    </button>
+
+    <button class="nav-btn" data-page="insights">
+      
+      <span>Insights</span>
+    </button>
+  </nav>
+
+  <script src="script.js"></script>
+  <script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./service-worker.js")
+        .then(() => console.log("Feelora is ready!"))
+        .catch(error => console.log("Service worker error:", error));
+    });
+  }
+</script>
+</body>
+</html>

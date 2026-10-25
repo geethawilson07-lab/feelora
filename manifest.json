@@ -1,0 +1,23 @@
+
+{
+  "name": "Feelora - Your Mood Garden",
+  "short_name": "Feelora",
+  "description": "Your peaceful mood tracker and journal.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#e7f3df",
+  "theme_color": "#315b43",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
